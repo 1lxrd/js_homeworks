@@ -22,5 +22,5 @@ function drawTriangleAlternative(count, symbol='+'){
     }
 }
 
-drawTriangle(6)
-drawTriangleAlternative(6, '*')
+drawTriangle(0);
+drawTriangleAlternative(0, '*');
