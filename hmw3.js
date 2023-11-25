@@ -1,9 +1,20 @@
 function pow(x, y){
 
-    result = x;
+    if (y === 0) result = 1;
 
-    for(let i = 1; i<y; i++) result*=x;
+    else{
+
+        if (y<0) {
+
+            x = 1/x; 
+            y = -y;
+        }
+
+        result = x;
+        for(let i = 1; i<y; i++) result*=x;
+
+    }
     console.log(result);
 }
 
-pow(2, 3)
+pow(2, -4)
