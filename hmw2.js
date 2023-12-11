@@ -23,7 +23,7 @@ const company = {
                     sells: 'Рішення для продажу квитків',
                     partners: [
                         {
-                            name: 'Клієнт 1.2.1',
+                            name: 'Клієнт 1.2.3',
                             type: 'subSubCompany',
                             uses: 'Рішення для продажу квитків',
                             sells: 'Рішення для продажу квитків',
@@ -41,23 +41,27 @@ const company = {
     ]
 };
 
-
 var findValueByKey = (companyName) => {
     parse = companyName.split(' ');
-    num = parse[1].split('.')
-    result = company.clients[num[0]-1]
-    
-    if (num[1]) {
+    num = parse[1].split('.');
+    result = false;
 
-        for (i in num){
+    for (i in company.clients) {
+        check = company.clients[i];
 
-            if (i>0){
-                console.log(num[i])
-                j = +num[i]
-                result = result.partners[j-1]
+        if (check.name === `${parse[0]} ${num[0]}`) result = check;
+    }
+
+    for (i in num) {
+        if (i>0) {
+            for ( j in result.partners) {
+                check = result.partners[j];
+                if (check.name === `${result.name}.${num[i]}`) result = check;
             }
         }
     }
 
-    console.log(result);
-}
+    if (result.name === companyName) console.log(result);
+};
+
+
