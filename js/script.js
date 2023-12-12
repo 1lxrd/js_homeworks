@@ -48,6 +48,6 @@ showFinesButton.addEventListener('click', () => {
 searchFines.addEventListener('click', () => {
     let number = document.getElementById("searchInput2").value;
     let fineType = document.getElementById("searchInput").value;
-    let searchData = (number) ? number : fineType;
+    let searchData = (number) ? [number, 'num'] : [fineType, 'type'];
     populateFinesTable(fineList.searchFines(searchData));
 })
