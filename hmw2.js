@@ -23,7 +23,7 @@ function filter (arr) {
     arr.forEach(element => {
         
         let a = mailTemp.test(element.email);
-        if (a) result.push(element);
+        if (a) result.push(element.email);
 
     });
 
